@@ -9,6 +9,19 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
+const LeftWrapper = styled('div')(({ theme }) => ({
+  width: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+}));
+const RightWrapper = styled('div')(({ theme }) => ({
+  width: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+}));
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -17,7 +30,7 @@ const Search = styled('div')(({ theme }) => ({
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
   marginLeft: 0,
-  width: '100%',
+  // width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),
     width: 'auto',
@@ -56,32 +69,38 @@ export default function App() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <img src="https://www.pngkey.com/png/full/372-3728292_message-ios-icon-png.png" alt="" style={{ height: "30px" }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="div"
-            sx={{ marginLeft: "10px", flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            LetsChat
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          <IconButton
-            size="large"
-            aria-label="display more actions"
-            edge="end"
-            color="inherit"
-          >
-            <MoreIcon />
-          </IconButton>
+          <LeftWrapper>
+            <img src="https://www.pngkey.com/png/full/372-3728292_message-ios-icon-png.png" alt="" style={{ height: "30px" }} />
+            <Typography
+              variant="h5"
+              noWrap
+              component="div"
+              sx={{ marginLeft: "10px" }}
+            >
+              LetsChat
+            </Typography>
+          </LeftWrapper>
+          <RightWrapper>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ 'aria-label': 'search' }}
+              />
+            </Search>
+            <IconButton
+              size="large"
+              aria-label="display more actions"
+              edge="end"
+              color="inherit"
+            >
+              <MoreIcon />
+            </IconButton>
+          </RightWrapper>
+
+
         </Toolbar>
       </AppBar>
     </Box>
